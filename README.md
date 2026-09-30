@@ -157,3 +157,11 @@ Hardcoded Passkey: The passkey (ELLIE GANDA) is hardcoded as plain text in the c
 Single User System: No multi-user support or separate account profiles.
 
 Unencrypted Database: The SQLite database file (notes.db) is stored locally without file-level encryption.
+
+
+---
+
+## AUTHOR
+
+# JAN MARIEL P. PAGTAKHAN
+      CS26L 3581
