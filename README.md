@@ -60,15 +60,12 @@ Python 3.10+ installed on your system.
 
 ## Step-by-Step Setup
 
-1.
-Clone the Repository:
+1. Clone the Repository:
 git clone https://github.com/Janrielle/project.git
 cd project
-2.
-Install Required Dependencies:
+2. Install Required Dependencies:
 pip install PyQt6
-3.
-Run the Application:
+3. Run the Application:
 python main.py
 
 ---
