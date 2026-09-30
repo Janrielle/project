@@ -140,12 +140,15 @@ Update: UPDATE notes SET title = ?, category = ?, content = ? WHERE id = ? via N
 ## Screenshots/Test
 
 <img width="255" height="167" alt="pass" src="https://github.com/user-attachments/assets/f1274321-aa85-4edd-8124-068e8fe30f71" />
+
 Security dialog requesting passkey input (ELLIE GANDA) to authenticate user access before launching or unlocking the main notes organizer UI.
 
 <img width="922" height="281" alt="output" src="https://github.com/user-attachments/assets/88433b57-b463-4f07-918e-1a819aea05af" />
+
 The top input form containing Title (THOUGHTS), Category (PERSONAL), and Content body text (ELLIE GANDA SAUR MUCH) fields alongside the "Save Note" action button.
 
 <img width="1830" height="402" alt="inpt " src="https://github.com/user-attachments/assets/a47e9640-0ad6-468a-b434-3a37165f635e" />
+
 The main notes area displaying saved records as custom cards featuring category badges (PERSONAL), titles (THOUGHTS), body text (ELLIE GANDA SAUR MUCH), and action controls (Edit and Delete)
 
 ---
