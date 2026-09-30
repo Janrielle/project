@@ -1,4 +1,4 @@
-Secure Notes Application
+Notes Organizer
 ---
 
 Project Description :
