@@ -3,11 +3,15 @@ Secure Notes Application
 Project Description
 The Secure Notes Application is a desktop-based note management system built with Python and PyQt6.
 ---
+
 * Problem Addressed: Many standard note-taking applications lack basic security or validation, making simple personal notes accessible to unauthorized local users.
+  
 * System Purpose: This system provides a secure, organized environment to create, view, and manage notes locally with integrated passkey authentication to safeguard note operations.
 
 ---
+
 ## Project Objectives
+
 * Provide a clean Graphical User Interface (GUI) for creating and managing categorized notes.
 * Implement passkey validation (ELLIE GANDA) to authenticate note operations and unlock/lock application states.
 * Maintain strict input validation to prevent empty or incomplete records from being stored.
@@ -17,6 +21,7 @@ The Secure Notes Application is a desktop-based note management system built wit
 ---
 
 ## Features
+
 * Passkey Authentication & Application Locking: Protects system interactions through passkey verification on startup and includes a custom "Lock App" action to temporarily secure active sessions.
 * Note Creation: Add notes with a title, category, and main body text.
 * Validation Check: Input fields are validated; empty notes or missing parameters are rejected.
@@ -27,6 +32,7 @@ The Secure Notes Application is a desktop-based note management system built wit
 ---
 
 ## Technologies Used
+
 * Programming Language: Python 3
 * GUI Framework: PyQt6 (using QMainWindow, QScrollArea, QGridLayout, QFrame, etc.)
 * Database: SQLite3
@@ -34,7 +40,8 @@ The Secure Notes Application is a desktop-based note management system built wit
 
 ---
 
-Project Structure
+## Project Structure
+
 project/
 │
 ├── main.py          # Entry point of the application; initializes dependency injection and starts GUI loop.
@@ -52,7 +59,8 @@ Python 3.10+ installed on your system.
 
 ---
 
-Step-by-Step Setup
+## Step-by-Step Setup
+
 1.
 Clone the Repository:
 git clone https://github.com/Janrielle/project.git
@@ -65,7 +73,8 @@ Run the Application:
 python main.py
 
 ---
-How to Use the System
+
+## How to Use the System
 
 Launch the application by executing main.py.
 
@@ -130,3 +139,25 @@ Delete: DELETE FROM notes WHERE id = ? via NoteRepository.delete().
 
 Update: UPDATE notes SET title = ?, category = ?, content = ? WHERE id = ? via NoteRepository.update().
 
+---
+
+## Screenshots/Test
+
+<img width="255" height="167" alt="pass" src="https://github.com/user-attachments/assets/f1274321-aa85-4edd-8124-068e8fe30f71" />
+Security dialog requesting passkey input (ELLIE GANDA) to authenticate user access before launching or unlocking the main notes organizer UI.
+
+<img width="922" height="281" alt="output" src="https://github.com/user-attachments/assets/88433b57-b463-4f07-918e-1a819aea05af" />
+The top input form containing Title (THOUGHTS), Category (PERSONAL), and Content body text (ELLIE GANDA SAUR MUCH) fields alongside the "Save Note" action button.
+
+<img width="1830" height="402" alt="inpt " src="https://github.com/user-attachments/assets/a47e9640-0ad6-468a-b434-3a37165f635e" />
+The main notes area displaying saved records as custom cards featuring category badges (PERSONAL), titles (THOUGHTS), body text (ELLIE GANDA SAUR MUCH), and action controls (Edit and Delete)
+
+---
+
+## Known Issues / Limitations
+
+Hardcoded Passkey: The passkey (ELLIE GANDA) is hardcoded as plain text in the code rather than encrypted or hashed.
+
+Single User System: No multi-user support or separate account profiles.
+
+Unencrypted Database: The SQLite database file (notes.db) is stored locally without file-level encryption.
