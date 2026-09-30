@@ -43,13 +43,12 @@ The Secure Notes Application is a desktop-based note management system built wit
 ## Project Structure
 
 project/
-│
-├── main.py          # Entry point of the application; initializes dependency injection and starts GUI loop.
-├── model.py         # Defines the data structures (Note dataclass).
-├── repository.py    # Database interaction layer handling direct SQLite queries.
-├── service.py       # Business logic layer handling validation, authentication, and rules.
-├── view.py          # Modernized PyQt6 GUI implementation featuring custom NoteCard components and grid UI layouts.
-└── notes.db         # SQLite database file (created automatically at runtime).
+ main.py  -  Entry point of the application; initializes dependency injection and starts GUI loop.
+ model.py - Defines the data structures (Note dataclass).
+ repository.py - Database interaction layer handling direct SQLite queries.
+ service.py  - Business logic layer handling validation, authentication, and rules.
+ view.py  - Modernized PyQt6 GUI implementation featuring custom NoteCard components and grid UI layouts.
+ notes.db - SQLite database file (created automatically at runtime).
 
 ---
 
