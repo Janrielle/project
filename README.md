@@ -1,8 +1,8 @@
 Secure Notes Application
 ---
-Project Description
+
+Project Description :
 The Secure Notes Application is a desktop-based note management system built with Python and PyQt6.
----
 
 * Problem Addressed: Many standard note-taking applications lack basic security or validation, making simple personal notes accessible to unauthorized local users.
   
