@@ -1,7 +1,6 @@
 import sqlite3
-from typing import List, Optional
-from model import Note
-
+from typing import List
+from feature.model import Note
 
 class NoteRepository:
     def __init__(self, db_path: str = "notes.db"):
@@ -12,7 +11,7 @@ class NoteRepository:
         return sqlite3.connect(self.db_path)
 
     def init_db(self) -> None:
-        """Initialize the database schema if it doesn't exist."""
+        """Initialize database schema if it doesn't exist."""
         with self._get_connection() as conn:
             cursor = conn.cursor()
             cursor.execute("""

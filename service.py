@@ -1,7 +1,6 @@
 from typing import List, Tuple
-from model import Note
-from repository import NoteRepository
-
+from feature.model import Note
+from feature.repository import NoteRepository
 PASSKEY = "ELLIE GANDA"
 
 

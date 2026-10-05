@@ -1,13 +1,11 @@
 import sys
 from PyQt6.QtWidgets import QApplication
 
-from repository import NoteRepository
-from service import NoteService
-from view import NotesApp
-
+from feature.repository import NoteRepository
+from feature.service import NoteService
+from feature.view import NotesApp
 
 def main():
-    # Dependency Injection
     repository = NoteRepository(db_path="notes.db")
     service = NoteService(repository=repository)
 
