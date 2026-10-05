@@ -8,7 +8,6 @@ from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont
 
 from feature.service import NoteService
-from feature.model import Note
 
 
 class NoteCard(QFrame):
@@ -19,23 +18,23 @@ class NoteCard(QFrame):
 
         self.setStyleSheet("""
             QFrame {
-                background-color: white;
-                border-radius: 8px;
+                background-color: #ffffff;
+                border-radius: 12px;
                 padding: 12px;
-                border: 1px solid #e2e8f0;
+                border: 1px solid #fbcfe8;
             }
         """)
 
         layout = QVBoxLayout()
         layout.setSpacing(6)
 
-        # Header Row
+        # Header Row (Category Tag + Delete Button)
         top_layout = QHBoxLayout()
         
         category_label = QLabel(category)
         category_label.setStyleSheet("""
-            background-color: #e0f2fe;
-            color: #0369a1;
+            background-color: #fce7f3;
+            color: #be185d;
             padding: 3px 8px;
             border-radius: 10px;
             font-size: 11px;
@@ -48,16 +47,16 @@ class NoteCard(QFrame):
         delete_btn.setCursor(Qt.CursorShape.PointingHandCursor)
         delete_btn.setStyleSheet("""
             QPushButton {
-                background-color: #dc3545;
+                background-color: #f43f5e;
                 color: white;
                 border: none;
                 padding: 4px 10px;
-                border-radius: 4px;
+                border-radius: 6px;
                 font-size: 12px;
                 font-weight: bold;
             }
             QPushButton:hover {
-                background-color: #a71d2a;
+                background-color: #e11d48;
             }
         """)
         delete_btn.clicked.connect(lambda: delete_callback(self.note_id))
@@ -69,14 +68,14 @@ class NoteCard(QFrame):
         title_label = QLabel(title)
         title_label.setFont(QFont("Arial", 12, QFont.Weight.Bold))
         title_label.setWordWrap(True)
-        title_label.setStyleSheet("color: #1e293b; border: none;")
+        title_label.setStyleSheet("color: #831843; border: none;")
         layout.addWidget(title_label)
 
         # Note Content
         content_label = QLabel(content)
         content_label.setFont(QFont("Arial", 10))
         content_label.setWordWrap(True)
-        content_label.setStyleSheet("color: #475569; border: none;")
+        content_label.setStyleSheet("color: #9d174d; border: none;")
         layout.addWidget(content_label)
 
         self.setLayout(layout)
@@ -88,8 +87,8 @@ class NotesApp(QMainWindow):
         self.service = service
 
         self.setWindowTitle("Notes Organizer")
-        self.resize(750, 700)
-        self.setStyleSheet("background-color: #f4f6f9;")
+        self.resize(750, 750)
+        self.setStyleSheet("background-color: #fdf2f8;")
 
         if not self.authenticate():
             sys.exit(0)
@@ -107,7 +106,7 @@ class NotesApp(QMainWindow):
                 "Enter Passkey to Unlock Notes:", 
                 QLineEdit.EchoMode.Password
             )
-            if not ok:
+            if not ok:  # User cancelled
                 return False
             if self.service.authenticate_passkey(key):
                 return True
@@ -130,20 +129,20 @@ class NotesApp(QMainWindow):
         header_layout = QHBoxLayout()
         header_title = QLabel("Notes Organizer")
         header_title.setFont(QFont("Arial", 18, QFont.Weight.Bold))
-        header_title.setStyleSheet("color: #1e293b;")
+        header_title.setStyleSheet("color: #831843;")
 
         lock_btn = QPushButton("Lock App")
         lock_btn.setCursor(Qt.CursorShape.PointingHandCursor)
         lock_btn.setStyleSheet("""
             QPushButton {
-                background-color: #6c757d;
+                background-color: #db2777;
                 color: white;
                 padding: 6px 12px;
-                border-radius: 4px;
+                border-radius: 6px;
                 font-weight: bold;
             }
             QPushButton:hover {
-                background-color: #5a6268;
+                background-color: #be185d;
             }
         """)
         lock_btn.clicked.connect(self.lock_app)
@@ -157,16 +156,20 @@ class NotesApp(QMainWindow):
         form_frame = QFrame()
         form_frame.setStyleSheet("""
             QFrame {
-                background-color: white;
-                border-radius: 8px;
+                background-color: #ffffff;
+                border-radius: 12px;
                 padding: 15px;
-                border: 1px solid #e2e8f0;
+                border: 1px solid #fbcfe8;
             }
             QLineEdit, QTextEdit {
-                border: 1px solid #ccc;
-                border-radius: 4px;
+                border: 1px solid #f472b6;
+                border-radius: 6px;
                 padding: 8px;
-                background-color: #fafafa;
+                background-color: #fff1f2;
+                color: #831843;
+            }
+            QLineEdit:focus, QTextEdit:focus {
+                border: 1px solid #db2777;
             }
         """)
         form_layout = QVBoxLayout()
@@ -185,14 +188,14 @@ class NotesApp(QMainWindow):
         save_btn.setCursor(Qt.CursorShape.PointingHandCursor)
         save_btn.setStyleSheet("""
             QPushButton {
-                background-color: #007bff;
+                background-color: #ec4899;
                 color: white;
                 padding: 8px 16px;
-                border-radius: 4px;
+                border-radius: 6px;
                 font-weight: bold;
             }
             QPushButton:hover {
-                background-color: #0056b3;
+                background-color: #db2777;
             }
         """)
         save_btn.clicked.connect(self.add_note)
@@ -205,10 +208,29 @@ class NotesApp(QMainWindow):
 
         main_layout.addWidget(form_frame)
 
+        # Search Bar Section
+        self.search_input = QLineEdit()
+        self.search_input.setPlaceholderText("🔍 Search notes by title, category, or keyword...")
+        self.search_input.setStyleSheet("""
+            QLineEdit {
+                border: 1px solid #f472b6;
+                border-radius: 8px;
+                padding: 8px;
+                background-color: #ffffff;
+                color: #831843;
+                font-size: 13px;
+            }
+            QLineEdit:focus {
+                border: 2px solid #db2777;
+            }
+        """)
+        self.search_input.textChanged.connect(self.filter_notes)
+        main_layout.addWidget(self.search_input)
+
         # Notes Cards Grid
         notes_label = QLabel("Your Notes")
         notes_label.setFont(QFont("Arial", 14, QFont.Weight.Bold))
-        notes_label.setStyleSheet("color: #1e293b;")
+        notes_label.setStyleSheet("color: #831843;")
         main_layout.addWidget(notes_label)
 
         self.scroll_area = QScrollArea()
@@ -226,18 +248,24 @@ class NotesApp(QMainWindow):
         central_widget.setLayout(main_layout)
 
     def load_notes(self):
-        """Fetch notes from service layer and display them."""
+        """Fetch notes based on current search input and display them."""
+        self.filter_notes()
+
+    def filter_notes(self):
+        """Fetch filtered notes dynamically as user types."""
+        query = self.search_input.text()
+        notes = self.service.search_notes(query)
+
+        # Clear existing cards
         while self.cards_layout.count():
             item = self.cards_layout.takeAt(0)
             widget = item.widget()
             if widget:
                 widget.deleteLater()
 
-        notes = self.service.fetch_all_notes()
-
         if not notes:
-            empty_lbl = QLabel("No notes saved yet!")
-            empty_lbl.setStyleSheet("color: #64748b; font-size: 13px;")
+            empty_lbl = QLabel("No matching notes found!")
+            empty_lbl.setStyleSheet("color: #9d174d; font-size: 13px;")
             self.cards_layout.addWidget(empty_lbl, 0, 0)
             return
 
@@ -263,6 +291,7 @@ class NotesApp(QMainWindow):
         self.title_input.clear()
         self.category_input.clear()
         self.content_input.clear()
+        self.search_input.clear()
         self.load_notes()
 
     def delete_note(self, note_id: int):

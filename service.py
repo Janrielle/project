@@ -1,6 +1,7 @@
 from typing import List, Tuple
 from feature.model import Note
 from feature.repository import NoteRepository
+
 PASSKEY = "ELLIE GANDA"
 
 
@@ -15,6 +16,13 @@ class NoteService:
     def fetch_all_notes(self) -> List[Note]:
         """Get all stored notes."""
         return self.repository.get_all()
+
+    def search_notes(self, query: str) -> List[Note]:
+        """Filter notes based on query string."""
+        query = query.strip()
+        if not query:
+            return self.fetch_all_notes()
+        return self.repository.search(query)
 
     def create_note(self, title: str, category: str, content: str) -> Tuple[bool, str]:
         """Validate inputs and save a new note."""

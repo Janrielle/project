@@ -1,6 +1,7 @@
 import sqlite3
-from typing import List
+from typing import List, Optional
 from feature.model import Note
+
 
 class NoteRepository:
     def __init__(self, db_path: str = "notes.db"):
@@ -11,7 +12,7 @@ class NoteRepository:
         return sqlite3.connect(self.db_path)
 
     def init_db(self) -> None:
-        """Initialize database schema if it doesn't exist."""
+        """Initialize the database schema if it doesn't exist."""
         with self._get_connection() as conn:
             cursor = conn.cursor()
             cursor.execute("""
@@ -29,6 +30,22 @@ class NoteRepository:
         with self._get_connection() as conn:
             cursor = conn.cursor()
             cursor.execute("SELECT id, title, category, content FROM notes ORDER BY id DESC")
+            rows = cursor.fetchall()
+            return [Note(id=row[0], title=row[1], category=row[2], content=row[3]) for row in rows]
+
+    def search(self, query: str) -> List[Note]:
+        """Search notes matching title, category, or content."""
+        with self._get_connection() as conn:
+            cursor = conn.cursor()
+            term = f"%{query}%"
+            cursor.execute(
+                """
+                SELECT id, title, category, content FROM notes 
+                WHERE title LIKE ? OR category LIKE ? OR content LIKE ?
+                ORDER BY id DESC
+                """,
+                (term, term, term)
+            )
             rows = cursor.fetchall()
             return [Note(id=row[0], title=row[1], category=row[2], content=row[3]) for row in rows]
 
