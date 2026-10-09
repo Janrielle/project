@@ -125,13 +125,13 @@ Objects are passed into constructors (e.g., NoteRepository injected into NoteSer
 | `content` | `TEXT` | `NOT NULL` | The detailed content of the note. |
 
 ## Database Operations (CRUD)
-Create: INSERT INTO notes (title, category, content) VALUES (?, ?, ?) via NoteRepository.add().
 
-Read: SELECT id, title, category, content FROM notes ORDER BY id DESC via NoteRepository.get_all().
-
-Delete: DELETE FROM notes WHERE id = ? via NoteRepository.delete().
-
-Update: UPDATE notes SET title = ?, category = ?, content = ? WHERE id = ? via NoteRepository.update().
+| Operation | SQL Query | Method Call |
+| :--- | :--- | :--- |
+| **Create** | `INSERT INTO notes (title, category, content) VALUES (?, ?, ?)` | `NoteRepository.add()` |
+| **Read** | `SELECT id, title, category, content FROM notes ORDER BY id DESC` | `NoteRepository.get_all()` |
+| **Update** | `UPDATE notes SET title = ?, category = ?, content = ? WHERE id = ?` | `NoteRepository.update()` |
+| **Delete** | `DELETE FROM notes WHERE id = ?` | `NoteRepository.delete()` |
 
 ---
 
