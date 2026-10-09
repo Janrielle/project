@@ -114,17 +114,15 @@ Objects are passed into constructors (e.g., NoteRepository injected into NoteSer
 
 ## Database
 
-Database Engine :
-SQLite3 (notes.db)
 
-Schema & Tables :
-Table Name: notes
+**Table Name:** `notes`
 
-Column Name, Data Type, Constraints, Description
- id, INTEGER, PRIMARY KEY AUTOINCREMENT, Unique identifier for each note.
-title, TEXT, NOT NULL, The title of the note.
-category, TEXT, NOT NULL, Group or category tag for the note.
-content, TEXT, NOT NULL, The detailed content of the note.
+| Column Name | Data Type | Constraints | Description |
+| :--- | :--- | :--- | :--- |
+| `id` | `INTEGER` | `PRIMARY KEY AUTOINCREMENT` | Unique identifier for each note. |
+| `title` | `TEXT` | `NOT NULL` | The title of the note. |
+| `category` | `TEXT` | `NOT NULL` | Group or category tag for the note. |
+| `content` | `TEXT` | `NOT NULL` | The detailed content of the note. |
 
 ## Database Operations (CRUD)
 Create: INSERT INTO notes (title, category, content) VALUES (?, ?, ?) via NoteRepository.add().
