@@ -42,13 +42,28 @@ The Notes Organizer is a desktop-based note management system built with Python 
 
 ## Project Structure
 
-project/
- main.py  -  Entry point of the application; initializes dependency injection and starts GUI loop.
- model.py - Defines the data structures (Note dataclass).
- repository.py - Database interaction layer handling direct SQLite queries.
- service.py  - Business logic layer handling validation, authentication, and rules.
- view.py  - Modernized PyQt6 GUI implementation featuring custom NoteCard components and grid UI layouts.
- notes.db - SQLite database file (created automatically at runtime).
+
+```text
+┌─────────────────────────────────────────┐
+│                 main.py                 │  (Entry Point / DI Wiring)
+└────────────────────┬────────────────────┘
+          ┌──────────┴──────────┐
+          ▼                     ▼
+┌──────────────────┐  ┌──────────────────┐
+│     view.py      │─►│    service.py    │  (Business Logic & Passkey)
+│      (GUI)       │  └────────┬─────────┘
+└────────┬─────────┘           │
+         │ (Uses Note          │
+         │  Data Object)       ▼
+         │            ┌──────────────────┐
+         └───────────►│  repository.py   │  (SQLite Direct Queries)
+                      └────────┬─────────┘
+                               │
+                               ▼
+                      ┌──────────────────┐
+                      │     model.py     │  (Data Class - Note)
+                      └──────────────────┘
+```
 
 ---
 
