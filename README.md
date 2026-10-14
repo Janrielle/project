@@ -161,13 +161,13 @@ Security dialog requesting passkey input to authenticate user access before laun
 
 To change the user's password, the user must enter their existing password, choose a new password of at least 4 characters, and re-enter it in the confirmation field to prevent typing errors before saving your changes.
 
-<img width="922" height="281" alt="output" src="https://github.com/user-attachments/assets/88433b57-b463-4f07-918e-1a819aea05af" />
+<img width="354" height="198" alt="read" src="https://github.com/user-attachments/assets/cc38d3e8-047c-4f89-bceb-d808f8216803" />
 
-The top input form containing Title (THOUGHTS), Category (PERSONAL), and Content body text (ELLIE GANDA SAUR MUCH) fields alongside the "Save Note" action button.
+The individual note card displays an overview of an entry featuring its category badge, title, a Delete button for removal, and a Click to read area that opens the full note details.
 
-<img width="1830" height="402" alt="inpt " src="https://github.com/user-attachments/assets/a47e9640-0ad6-468a-b434-3a37165f635e" />
+<img width="480" height="500" alt="Capture" src="https://github.com/user-attachments/assets/b042fdc2-e14d-401a-a99c-b88dd71d7d2e" />
 
-The main notes area displaying saved records as custom cards featuring category badges (PERSONAL), titles (THOUGHTS), body text (ELLIE GANDA SAUR MUCH), and action controls (Edit and Delete)
+The detailed note view displays the full Title, Category, and body Content of a selected entry, allowing you to review its details or click Edit to make changes.
 
 ---
 
