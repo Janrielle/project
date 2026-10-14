@@ -12,22 +12,23 @@ The Notes Organizer is a desktop-based note management system built with Python 
 
 ## Project Objectives
 
-* Provide a clean Graphical User Interface (GUI) for creating and managing categorized notes.
-* Implement passkey validation (ELLIE GANDA) to authenticate note operations and unlock/lock application states.
-* Maintain strict input validation to prevent empty or incomplete records from being stored.
-* Ensure data persistence using a local SQLite database engine.
-* Follow layered software design principles (Model-View-Repository-Service / Layered Architecture).
+* To Provide a clean Graphical User Interface (GUI) for creating and managing categorized notes.
+* To Implement passkey validation (ELLIE GANDA) to authenticate note operations and unlock/lock application states.
+* To Maintain strict input validation to prevent empty or incomplete records from being stored.
+* To Ensure data persistence using a local SQLite database engine.
+* To Follow layered software design principles (Model-View-Repository-Service / Layered Architecture).
 
 ---
 
 ## Features
 
-* Passkey Authentication & Application Locking: Protects system interactions through passkey verification on startup and includes a custom "Lock App" action to temporarily secure active sessions.
-* Note Creation: Add notes with a title, category, and main body text.
-* Validation Check: Input fields are validated; empty notes or missing parameters are rejected.
-* Persistent Storage: Saves created notes to an SQLite database file (notes.db).
-* Custom Card UI Display: Renders saved notes in a styled 2-column grid layout with customizable categories and individual note deletion triggers.
-* Note Viewing & Removal: Retrieve all stored notes in reverse chronological order and delete specific notes by ID.
+* Your own password: Pick a password the first time you open the app, and change it anytime.
+* Lock App: Lock your notes with one click. Your password is needed to open them again.
+* Add notes: Save a note with a title, category, and text. Empty fields are not allowed.
+* Click to read: Notes show only the title and category. Click one to read it.
+* Edit and delete: Change a note after opening it, or delete it from its card.
+* Search: Find notes by title, category, or keyword.
+* Saved automatically: Notes are stored in a local database file (notes.db).
 
 ---
 
