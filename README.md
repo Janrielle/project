@@ -153,9 +153,13 @@ Objects are passed into constructors (e.g., NoteRepository injected into NoteSer
 
 ## Screenshots/Test
 
-<img width="255" height="167" alt="pass" src="https://github.com/user-attachments/assets/f1274321-aa85-4edd-8124-068e8fe30f71" />
+<img width="221" height="133" alt="pass" src="https://github.com/user-attachments/assets/8f3a8093-988c-495a-931a-23336357d915" />
 
-Security dialog requesting passkey input (ELLIE GANDA) to authenticate user access before launching or unlocking the main notes organizer UI.
+Security dialog requesting passkey input to authenticate user access before launching or unlocking the main notes organizer UI.
+
+<img width="368" height="282" alt="change pass" src="https://github.com/user-attachments/assets/6d6bc0e3-edc2-44b6-ac2d-931f8ea270d6" />
+
+To change the user's password, the user must enter their existing password, choose a new password of at least 4 characters, and re-enter it in the confirmation field to prevent typing errors before saving your changes.
 
 <img width="922" height="281" alt="output" src="https://github.com/user-attachments/assets/88433b57-b463-4f07-918e-1a819aea05af" />
 
