@@ -5,6 +5,7 @@ from feature.repository import NoteRepository
 from feature.service import NoteService
 from feature.view import NotesApp
 
+
 def main():
     repository = NoteRepository(db_path="notes.db")
     service = NoteService(repository=repository)
