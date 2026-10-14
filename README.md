@@ -13,7 +13,7 @@ The Notes Organizer is a desktop-based note management system built with Python 
 ## Project Objectives
 
 * To Provide a clean Graphical User Interface (GUI) for creating and managing categorized notes.
-* To Implement passkey validation (ELLIE GANDA) to authenticate note operations and unlock/lock application states.
+* To Implement passkey validation to authenticate note operations and unlock/lock application states.
 * To Maintain strict input validation to prevent empty or incomplete records from being stored.
 * To Ensure data persistence using a local SQLite database engine.
 * To Follow layered software design principles (Model-View-Repository-Service / Layered Architecture).
@@ -90,11 +90,15 @@ python main.py
 
 Launch the application by executing main.py.
 
-Enter the passkey (ELLIE GANDA) in the startup authentication dialog to unlock the main application interface.
+Enter your passkey in the startup authentication dialog to unlock the main application interface.
 
 To create a note, fill in the Title, Category, and Content fields in the top form panel, then click Save Note.
 
+Click Click to read on a note card to view its full details, then click Edit to modify the title, category, or content.
+
 To delete a note, click the red Delete button located on any specific note card.
+
+Access the Change Password menu option, enter your existing password, and specify a new password of at least 4 characters.
 
 To lock the session, click the Lock App button at the top header area. Re-entering the valid passkey is required to resume using the app.
 
@@ -173,7 +177,7 @@ The detailed note view displays the full Title, Category, and body Content of a 
 
 ## Known Issues / Limitations
 
-Hardcoded Passkey: The passkey (ELLIE GANDA) is hardcoded as plain text in the code rather than encrypted or hashed.
+Hardcoded Passkey: The passkey is hardcoded as plain text in the code rather than encrypted or hashed.
 
 Single User System: No multi-user support or separate account profiles.
 
